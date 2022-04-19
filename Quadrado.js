@@ -10,39 +10,29 @@ export default function Quadrado()
    let icone = "";
    if (jogador == 1)
    {
-        icone = <Entypo name="cross" size={24} color="black" />
-   }
-
-   if (jogador == 2)
+        icone = <Entypo name="cross" size={32} color="black" />
+   } else if (jogador == 2)
    {
-       icone = <Entypo name="circle" size={24} color="black" />
+       icone = <Entypo name="circle" size={32} color="black" />
    }
 
     return(
 
-        <View style={css.box}>
-
-           { icone }
-            
-            </View>
+        <View style={css.box}>{icone}</View>
     );
 }
 
 const css = StyleSheet.create({
 
-    box: 
-    
-    {
-
+    box:{
         borderColor: '#000000',
         borderStyle: "solid",
         borderWidth: 1,
         width: 80,
         heigth: 80,
         display: 'flex',
-        alignItems: 'flex',
+        alignItems: 'center',
         justifyContent: 'center'
-
     }
 
 })
