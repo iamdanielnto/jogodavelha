@@ -6,12 +6,15 @@ export default function Quadrado(props)
 {
 
     const jogador = props.jogador
-
+    const vencedor = props.vencedor
     const [fezJogada, setJogada]= useState(0)
+    const reset = props.reset
 
    let icone = <Text></Text>;
-
-   if (fezJogada == 1)
+   if (fezJogada == 0 || reset == 0)
+   {
+        icone = <Text></Text>;
+   } else if (fezJogada == 1)
    {
         icone = <Entypo name="cross" size={32} color="black"/>
    } else if (fezJogada == 2)
@@ -21,17 +24,17 @@ export default function Quadrado(props)
 
    function jogada ()
    {
-       if(fezJogada == 0 )
+       if(fezJogada == 0 && (vencedor == undefined  || vencedor == 0))
        {
          setJogada(jogador)
          const posicao = props.posicao
          props.tabuleiro(posicao)
-         let novo = (jogador ==1)? 2 : 1;
+         let novo = (jogador ==1) ? 2 : 1;
          props.alteraJogador(novo);
+       } else {
+           setJogada(0);
+           console.log("acabou")
        }
-
-
-
    }
 
     return(
