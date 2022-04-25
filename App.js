@@ -70,19 +70,16 @@ export default function App() {
   return (
     <View style={styles.container}>
 
+        <View style={styles.texto}>
       {(vencedor != 0) ?
         <Text> O Vencedor é o Jogador {jogador}</Text>:
         <Text> O Proximo Jogador é o #{jogador}</Text>
       }
+        </View>
         
-        <Button
-         onPress={reset}
-         title="Novo Jogo"
-         color="#841584"
-         accessibilityLabel="Learn more about this purple button"/>
-         
+       
       
-
+    <View style={styles.tabuleiro}>
       <View>
         <Quadrado
           posicao='0'
@@ -155,6 +152,17 @@ export default function App() {
           alteraJogador={alteraJogador} />
       </View>
     </View>
+
+    <View style={styles.caixa}>
+        <Button
+         onPress={reset}
+         title="Novo Jogo"
+         color="#841584"
+         accessibilityLabel="Learn more about this purple button"/>
+         </View>
+         
+
+      </View>
   );
 }
 
@@ -163,8 +171,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    display: "flex",
+    justifyContent: "center"
+    
+  },
+  tabuleiro: {
     justifyContent: 'center',
     alignContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    display: "flex",
+    justifyContent: "center"
+
   },
+
+  caixa:{
+    padding: 10
+  }
+
+
 });
