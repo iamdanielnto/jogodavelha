@@ -13,7 +13,8 @@ export default function Quadrado(props)
    let icone = <Text></Text>;
    if (fezJogada == 0 || reset == 0)
    {
-        icone = <Text></Text>;
+        icone = <Text></Text>
+    
    } else if (fezJogada == 1)
    {
         icone = <Entypo name="cross" size={32} color="black"/>

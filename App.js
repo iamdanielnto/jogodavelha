@@ -10,7 +10,7 @@ export default function App() {
   const [jogador, setJogador] = useState(1);
   const [tabuleiro, setTabuleiro] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
   const [vencedor, setVencedor] = useState(0);
-  const [start, setStart] = useState(0);
+  const [start, setStart] = useState(1);
   const posicoes = [
     [0, 1, 2],
     [3, 4, 5],
@@ -58,10 +58,13 @@ export default function App() {
     }
   }
 
-  function reset(){
-      setStart(0)
-      setVencedor(0);
-      setTabuleiro(0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+  if (vencedor != 0) {
+    Alert.alert("Vencedor", "O vencedor é o jogador #" + vencedor)
+  }
+
+  function reset() {
+    window.location.reload()
   }
 
   return (
@@ -69,14 +72,16 @@ export default function App() {
 
       {(vencedor != 0) ?
         <Text> O Vencedor é o Jogador {jogador}</Text>:
-        <Text> O Proximo Jogador é o #{jogador}</Text>}
+        <Text> O Proximo Jogador é o #{jogador}</Text>
+      }
+        
+        <Button
+         onPress={reset}
+         title="Novo Jogo"
+         color="#841584"
+         accessibilityLabel="Learn more about this purple button"/>
+         
       
-      <Button
-        onPress={reset}
-        title="Novo Jogo"
-        color="#841584"
-        accessibilityLabel="Learn more about this purple button"
-      />
 
       <View>
         <Quadrado
@@ -152,10 +157,6 @@ export default function App() {
     </View>
   );
 }
-
-<button>
-  Novo Jogo
-</button>
 
 const styles = StyleSheet.create({
   container: {
